@@ -1,15 +1,16 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 import openai
 import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def serve_index():
+    return send_file(os.path.join(app.root_path, 'aisomm.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
-        
     process_form_post()
-    return 'Received form data successfully!'
 
 @app.route('/taste/', methods=['POST'])
 def process_form_post():
