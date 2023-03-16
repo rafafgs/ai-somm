@@ -1,2 +1,6 @@
 Flask
 gunicorn
+openai
+os
+request
+send_file
