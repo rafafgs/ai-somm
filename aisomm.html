@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wine Tasting</title>
+    <style>
+		  body {
+			background-color: #e5d6c7;
+			font-family: Georgia, serif;
+		  }
+
+		  h1 {
+			font-size: 2em;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		  }
+
+		  form {
+			margin: 20px auto;
+			max-width: 600px;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		  }
+
+		  label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 1.2em;
+			font-weight: bold;
+		  }
+
+		  input[type="range"] {
+			width: 100%;
+			margin-bottom: 20px;
+		  }
+
+		  select {
+			width: 100%;
+			margin-bottom: 20px;
+		  }
+
+		  button {
+			display: block;
+			margin: 20px auto;
+			padding: 10px 20px;
+			background-color: #8b0000;
+			color: #fff;
+			border-radius: 5px;
+			border: none;
+			font-size: 1.2em;
+			cursor: pointer;
+		  }
+
+		  button:hover {
+			background-color: #a52a2a;
+		  }
+		  
+		/* Wine slider styles */
+		input[type=range] {
+		  -webkit-appearance: none;
+		  width: 100%;
+		  height: 10px;
+		  background-color: #EEE;
+		  border-radius: 5px;
+		  margin: 5px 0;
+		}
+
+		input[type=range]:focus {
+		  outline: none;
+		}
+
+		input[type=range]::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  width: 20px;
+		  height: 20px;
+		  background-color: #a52a2a;
+		  border-radius: 50%;
+		  cursor: pointer;
+		  border: none;
+		  margin-top: -5px;
+		}
+
+		input[type=range]::-webkit-slider-runnable-track {
+		  width: 100%;
+		  height: 10px;
+		  background-color: #BEBABA;
+		  border-radius: 5px;
+		}
+
+		input[type=range]:hover::-webkit-slider-thumb {
+		  background-color: #A52A2A;
+		}
+
+		input[type=range]::-moz-range-thumb {
+		  width: 20px;
+		  height: 20px;
+		  background-color: #8B0000;
+		  border-radius: 50%;
+		  cursor: pointer;
+		  border: none;
+		  margin-top: -5px;
+		}
+
+		input[type=range]::-moz-range-track {
+		  width: 100%;
+		  height: 10px;
+		  background-color: #ECECEC;
+		  border-radius: 5px;
+		  border: none;
+		}
+
+		input[type=range]:hover::-moz-range-thumb {
+		  background-color: #A52A2A;
+		}
+
+		input[type=range]::-ms-thumb {
+		  width: 20px;
+		  height: 20px;
+		  background-color: #8B0000;
+		  border-radius: 50%;
+		  cursor: pointer;
+		  border: none;
+		  margin-top: -5px;
+		}
+
+		input[type=range]::-ms-track {
+		  width: 100%;
+		  height: 10px;
+		  background-color: #ECECEC;
+		  border-radius: 5px;
+		  border: none;
+		}
+
+		input[type=range]:hover::-ms-thumb {
+		  background-color: #A52A2A;
+		}
+
+		select[multiple] {
+		  height: 300px;
+		  display: flex;
+		  flex-wrap: wrap;
+		  align-items: center;
+		  gap: 10px;
+		  padding: 10px;
+		  font-size: 16px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  background-color: #fff;
+		  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+		  outline: none;
+		}
+
+		select[multiple] option {
+		  display: inline-flex;
+		  align-items: center;
+		  justify-content: center;
+		  height: 30px;
+		  padding: 5px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  background-color: #fff;
+		  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+		  white-space: nowrap;
+		}
+
+		select[multiple] option:checked {
+		  background-color: #FFB6C1;
+		  border-color: #adadad;
+		  box-shadow: none;
+		}
+    </style>
+  </head>
+  <body>
+    <h1>Wine Tasting</h1>
+    <form action="http://localhost:5000/taste/" method=POST>
+      <label for="body">Body:</label>
+      <input type="range" id="body" name="body" min="1" max="5" value="3">
+
+      <label for="alcohol">Alcohol Level:</label>
+      <input type="range" id="alcohol" name="alcohol" min="1" max="5" value="3">
+
+      <label for="acidity">Acidity:</label>
+      <input type="range" id="acidity" name="acidity" min="1" max="5" value="3">
+
+      <label for="tannins">Tannins:</label>
+      <input type="range" id="tannins" name="tannins" min="0" max="5" value="2">
+
+      <label for="wine-type">Wine Type:</label>
+      <select id="wine-type" name="wine-type">
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="sparkling">Sparkling</option>
+        <option value="orange">Orange</option>
+        <option value="fortified">Fortified</option>
+      </select>
+
+      <label for="flavors">Fruits:</label>
+      <select id="flavors" name="flavors" multiple>
+		  <option value="raspberry">Raspberry</option>
+		  <option value="red currant">Red Currant</option>
+		  <option value="black currant">Black Currant</option>
+		  <option value="strawberry">Strawberry</option>
+		  <option value="blackberry">Blackberry</option>
+		  <option value="cherry">Cherry</option>
+		  <option value="plum">Plum</option>
+		  <option value="lemon">Lemon</option>
+		  <option value="lime">Lime</option>
+		  <option value="grapefruit">Grapefruit</option>
+		  <option value="pear">Pear</option>
+		  <option value="apple">Apple</option>
+		  <option value="green apple">Green Apple</option>
+		  <option value="peach">Peach</option>
+		  <option value="melon">Melon</option>
+		  <option value="guava">Guava</option>
+		  <option value="pineapple">Pineapple</option>
+		  <option value="passion fruit">Passion Fruit</option>
+		  <option value="lychee">Lychee</option>
+		  <option value="apricot">Apricot</option>
+		  <option value="orange peel">Orange Peel</option>
+		  <option value="leather">Leather</option>
+		  <option value="barnyard">Barnyard</option>
+		  <option value="nuts">Nuts</option>
+		  <option value="honey">Honey</option>
+		  <option value="orange">Orange</option>
+		  <option value="dried fruits">Dried Fruits</option>
+		  <option value="oxidation">Oxidation</option>
+		  <option value="honeysuckle">Honeysuckle</option>
+		  <option value="hawthorn">Hawthorn</option>
+		  <option value="orange blossom">Orange Blossom</option>
+		  <option value="linden">Linden</option>
+		  <option value="jasmine">Jasmine</option>
+		  <option value="acacia">Acacia</option>
+		  <option value="rose">Rose</option>
+		  <option value="lavender">Lavender</option>
+		  <option value="violet">Violet</option>
+		  <option value="bell pepper">Bell Pepper</option>
+		  <option value="fennel">Fennel</option>
+		  <option value="tomato">Tomato</option>
+		  <option value="freshly cut grass">Freshly Cut Grass</option>
+		  <option value="dill">Dill</option>
+		  <option value="thyme">Thyme</option>
+		  <option value="mint">Mint</option>
+		  <option value="coffee">Coffee</option>
+		  <option value="smoke">Smoke</option>
+		  <option value="tobacco">Tobacco</option>
+		  <option value="caramel">Caramel</option>
+		  <option value="chocolate">Chocolate</option>
+		  <option value="buttered toast">Buttered Toast</option>
+		  <option value="vanilla">Vanilla</option>
+		  <option value="black pepper">Black Pepper</option>
+		  <option value="cinnamon">Cinnamon</option>
+		  <option value="licorice">Licorice</option>
+		  <option value="nutmeg">Nutmeg</option>
+		  <option value="cloves">Cloves</option>
+		  <option value="almonds">Almonds</option>
+		  <option value="hazelnut">Hazelnut</option>
+		  <option value="coconut">Coconut</option>
+		  <option value="pine">Pine</option>
+		  <option value="cedar">Cedar</option>
+		  <option value="sandalwood">Sandalwood</option>
+		  <option value="oak">Oak</option>
+		  <option value="butter">Butter</option>
+      </select><br>
+
+      <button type="submit" name="submit">Taste</button>
+    </form>
+  </body>
+</html>
