@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, render_template
+from flask import Flask, request, send_file, render_template, make_response
 import openai
 import os
 
@@ -12,7 +12,8 @@ def add_header(response):
 
 @app.route('/')
 def serve_index():
-    return send_file(os.path.join(app.root_path, 'aisomm.html'))
+    return make_response(render_template('aisomm.html'))
+    #return send_file(os.path.join(app.root_path, 'aisomm.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
