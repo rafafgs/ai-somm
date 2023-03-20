@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, render_template
 import openai
 import os
 
@@ -21,9 +21,10 @@ def process_form_post():
     wine_type = request.form['wine-type']
     flavors = request.form.getlist('flavors')
     
-    result = f"I want you to give me a list of 3 possible wine styles that match these parameters. Acidity (1 to 5): {acidity}, Alcohol (1 to 5):{alcohol}, Tannins (0 to 5):{tannins}, Body (1 to 5): {body}, Wine type (Red, White, Rose, Orange, Sparkling and Fortified):{wine_type}, and a list of flavors: {flavors}. Return a simple list without any introduction or comments.'"
+    prompt = f"I want you to give me a list of 3 possible wine styles that match these parameters. Acidity (1 to 5): {acidity}, Alcohol (1 to 5):{alcohol}, Tannins (0 to 5):{tannins}, Body (1 to 5): {body}, Wine type (Red, White, Rose, Orange, Sparkling and Fortified):{wine_type}, and a list of flavors: {flavors}. Return a simple list without any introduction or comments.'"
        
-    return sommelAIer(result)
+    return render_template('result.html', result=sommelAIer(prompt))
+    
 
 def sommelAIer(prompt):
     # Set up your OpenAI API key
