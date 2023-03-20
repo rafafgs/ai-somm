@@ -11,7 +11,7 @@ def add_header(response):
     return response
 
 @app.route('/')
-def serve_index():
+def index():
     return make_response(render_template('aisomm.html'))
     #return send_file(os.path.join(app.root_path, 'aisomm.html'))
 
