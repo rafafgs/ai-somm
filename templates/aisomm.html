@@ -228,7 +228,6 @@
       <select id="wine-type" name="wine-type">
         <option value="red">Red</option>
         <option value="white">White</option>
-        <option value="sparkling">Sparkling</option>
         <option value="fortified">Fortified</option>
       </select>
 
@@ -323,6 +322,16 @@
 			$('#tannins-value').html('Tannins: ' + $(this).val());
 		  });
 		});
+	</script>
+	<script>
+		window.onload = function() {
+			document.getElementById('body').value = 1;
+			document.getElementById('acidity').value = 1;
+			document.getElementById('tannins').value = 0;
+			document.getElementById('alcohol').value = 1;
+			document.getElementById("wine-type").selectedIndex = -1
+			document.getElementById("flavors").selectedIndex = -1
+	}
 	</script>
   </body>
 </html>
