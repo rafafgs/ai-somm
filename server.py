@@ -4,16 +4,9 @@ import os
 
 app = Flask(__name__)
 
-@app.after_request
-def add_header(response):
-    response.cache_control.no_cache = True
-    response.cache_control.max_age = 0
-    return response
-
 @app.route('/')
 def index():
     return make_response(render_template('aisomm.html'))
-    #return send_file(os.path.join(app.root_path, 'aisomm.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
