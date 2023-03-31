@@ -2,11 +2,12 @@ from flask import Flask, request, send_file, render_template, make_response
 import openai
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
 def index():
-    return make_response(render_template('aisomm.html'))
+    return make_response(render_template('aisomm2.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
