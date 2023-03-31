@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return make_response(render_template('aisomm2.html'))
+    return make_response(render_template('aisomm.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
