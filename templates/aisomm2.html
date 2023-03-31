@@ -10,11 +10,9 @@
 <script src="{{ url_for('static', filename='js/config.js')}}"></script>
 <script src="{{ url_for('static', filename='js/skel.min.js')}}"></script>
 <script src="{{ url_for('static', filename='js/skel-ui.min.js')}}"></script>
-<noscript>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/skel-noscript.css')}}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style-desktop.css')}}">
-</noscript>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/skel-noscript.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style-desktop.css')}}">
 <!--[if lte IE 8]>
 <script src="js/html5shiv.js"></script>
 <![endif]-->
@@ -23,7 +21,7 @@
 <div id="header-wrapper">
   <div id="header" class="container">
     <h1 id="logo"><a href="#">AI Somm</a></h1>
-    <p>Describe the wine you're drinking, and I'll try to guess what it is</p>
+    <p>Describe the wine you're drinking, and I'll guess what it is</p>
   </div>
 </div>
 <div id="features-wrapper">
