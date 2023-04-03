@@ -7,7 +7,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
 def index():
-    return make_response(render_template('aisomm2.html'))
+    return make_response(render_template('aisomm.html'))
 
 @app.route('/taste/', methods=['GET'])
 def process_form_get():
